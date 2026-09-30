@@ -1,0 +1,65 @@
+# ==============================================================================
+# MetaHPO-C: Dataset Configuration
+# ==============================================================================
+# Dataset registry for historical meta-training and unseen evaluation.
+# OpenML IDs will be queried and verified during the data acquisition phase.
+#
+# Splits:
+#   - train_meta: Historical datasets used for meta-feature extraction and HPO runs
+#   - unseen_test: Held-out datasets used to evaluate zero-shot / warm-started recommendations
+# ==============================================================================
+
+datasets:
+  # ----------------------------------------------------------------------------
+  # Historical / Meta-Training Datasets (8 datasets)
+  # ----------------------------------------------------------------------------
+  - dataset_name: adult
+    split: train_meta
+    source: openml
+
+  - dataset_name: bank-marketing
+    split: train_meta
+    source: openml
+
+  - dataset_name: credit-g
+    split: train_meta
+    source: openml
+
+  - dataset_name: wdbc
+    split: train_meta
+    source: openml
+
+  - dataset_name: spambase
+    split: train_meta
+    source: openml
+
+  - dataset_name: vehicle
+    split: train_meta
+    source: openml
+
+  - dataset_name: phoneme
+    split: train_meta
+    source: openml
+
+  - dataset_name: blood-transfusion-service-center
+    split: train_meta
+    source: openml
+
+  # ----------------------------------------------------------------------------
+  # Unseen / Meta-Test Datasets (4 datasets)
+  # ----------------------------------------------------------------------------
+  - dataset_name: madelon
+    split: unseen_test
+    source: openml
+
+  - dataset_name: diabetes
+    split: unseen_test
+    source: openml
+
+  - dataset_name: steel-plates-fault
+    split: unseen_test
+    source: openml
+
+  - dataset_name: ilpd
+    split: unseen_test
+    source: openml

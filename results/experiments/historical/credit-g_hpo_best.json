@@ -1,0 +1,16 @@
+{
+  "dataset": "credit-g",
+  "n_trials": 20,
+  "best_trial_number": 17,
+  "best_cv_macro_f1": 0.7020804602460949,
+  "best_params": {
+    "n_estimators": 242,
+    "max_depth": 4,
+    "learning_rate": 0.1744115940116885,
+    "subsample": 0.6732132011401761,
+    "colsample_bytree": 0.7847426872478397,
+    "min_child_weight": 5,
+    "gamma": 0.9600742291041227,
+    "reg_lambda": 1.5589732778156862
+  }
+}

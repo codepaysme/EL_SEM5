@@ -1,0 +1,16 @@
+{
+  "dataset": "phoneme",
+  "n_trials": 20,
+  "best_trial_number": 16,
+  "best_cv_macro_f1": 0.8663406821863647,
+  "best_params": {
+    "n_estimators": 147,
+    "max_depth": 8,
+    "learning_rate": 0.039603339512775664,
+    "subsample": 0.7548844201860254,
+    "colsample_bytree": 0.9978276688162708,
+    "min_child_weight": 3,
+    "gamma": 0.8612881784801394,
+    "reg_lambda": 1.46463424828912
+  }
+}

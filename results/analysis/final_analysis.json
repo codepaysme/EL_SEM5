@@ -1,0 +1,708 @@
+{
+  "benchmark_title": "MetaHPO-C Final Statistical & Empirical Analysis",
+  "datasets_evaluated": [
+    "diabetes",
+    "ilpd",
+    "madelon",
+    "steel-plates-fault"
+  ],
+  "methods_evaluated": [
+    "random_search",
+    "optuna_tpe",
+    "metahpo_c"
+  ],
+  "n_unseen_datasets": 4,
+  "trials_per_method": 20,
+  "final_results": [
+    {
+      "dataset_name": "madelon",
+      "method": "random_search",
+      "best_cv_macro_f1": 0.8023511549617105,
+      "best_trial_number": 7,
+      "test_macro_f1": 0.8519181481632154,
+      "test_accuracy": 0.8519230769230769,
+      "hpo_runtime_seconds": 135.86401400039904,
+      "total_runtime_seconds": 135.87587809981778,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "madelon",
+      "method": "optuna_tpe",
+      "best_cv_macro_f1": 0.8110219023049062,
+      "best_trial_number": 14,
+      "test_macro_f1": 0.8538439917750262,
+      "test_accuracy": 0.8538461538461538,
+      "hpo_runtime_seconds": 159.3024995997548,
+      "total_runtime_seconds": 159.44520389987156,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "madelon",
+      "method": "metahpo_c",
+      "best_cv_macro_f1": 0.8047237423487484,
+      "best_trial_number": 6,
+      "test_macro_f1": 0.8595899404847771,
+      "test_accuracy": 0.8596153846153847,
+      "hpo_runtime_seconds": 182.46779030025937,
+      "total_runtime_seconds": 183.6133459000848,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "diabetes",
+      "method": "random_search",
+      "best_cv_macro_f1": 0.7532214010616897,
+      "best_trial_number": 16,
+      "test_macro_f1": 0.72074208397266,
+      "test_accuracy": 0.7467532467532467,
+      "hpo_runtime_seconds": 6.559875799808651,
+      "total_runtime_seconds": 6.564407099969685,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "diabetes",
+      "method": "optuna_tpe",
+      "best_cv_macro_f1": 0.7575117456980202,
+      "best_trial_number": 15,
+      "test_macro_f1": 0.7290740740740741,
+      "test_accuracy": 0.7532467532467533,
+      "hpo_runtime_seconds": 6.498883200110868,
+      "total_runtime_seconds": 6.775762300007045,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "diabetes",
+      "method": "metahpo_c",
+      "best_cv_macro_f1": 0.739258950009208,
+      "best_trial_number": 8,
+      "test_macro_f1": 0.7068341899866742,
+      "test_accuracy": 0.7402597402597403,
+      "hpo_runtime_seconds": 5.63598980056122,
+      "total_runtime_seconds": 5.942170300055295,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "method": "random_search",
+      "best_cv_macro_f1": 1.0,
+      "best_trial_number": 0,
+      "test_macro_f1": 1.0,
+      "test_accuracy": 1.0,
+      "hpo_runtime_seconds": 6.091925099492073,
+      "total_runtime_seconds": 6.095416900003329,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "method": "optuna_tpe",
+      "best_cv_macro_f1": 1.0,
+      "best_trial_number": 1,
+      "test_macro_f1": 1.0,
+      "test_accuracy": 1.0,
+      "hpo_runtime_seconds": 7.462924199644476,
+      "total_runtime_seconds": 7.5920413001440465,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "method": "metahpo_c",
+      "best_cv_macro_f1": 1.0,
+      "best_trial_number": 2,
+      "test_macro_f1": 1.0,
+      "test_accuracy": 1.0,
+      "hpo_runtime_seconds": 7.2909680001903325,
+      "total_runtime_seconds": 7.474794500041753,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "ilpd",
+      "method": "random_search",
+      "best_cv_macro_f1": 0.6334786916000458,
+      "best_trial_number": 18,
+      "test_macro_f1": 0.5357142857142857,
+      "test_accuracy": 0.6239316239316239,
+      "hpo_runtime_seconds": 3.029202900128439,
+      "total_runtime_seconds": 3.032591400202364,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "ilpd",
+      "method": "optuna_tpe",
+      "best_cv_macro_f1": 0.61853167151679,
+      "best_trial_number": 10,
+      "test_macro_f1": 0.5580629539951574,
+      "test_accuracy": 0.6666666666666666,
+      "hpo_runtime_seconds": 3.127639099722728,
+      "total_runtime_seconds": 3.2523483000695705,
+      "n_trials": 20
+    },
+    {
+      "dataset_name": "ilpd",
+      "method": "metahpo_c",
+      "best_cv_macro_f1": 0.6311915235187172,
+      "best_trial_number": 19,
+      "test_macro_f1": 0.5450617817333449,
+      "test_accuracy": 0.6153846153846154,
+      "hpo_runtime_seconds": 3.572625400032848,
+      "total_runtime_seconds": 3.759816200006753,
+      "n_trials": 20
+    }
+  ],
+  "per_dataset_differences": [
+    {
+      "dataset_name": "madelon",
+      "comparison": "metahpo_c_vs_random_search",
+      "baseline_method": "random_search",
+      "cv_macro_f1_abs_diff": 0.002372587387037939,
+      "cv_macro_f1_pct_diff": 0.2957043648988282,
+      "test_macro_f1_abs_diff": 0.007671792321561677,
+      "test_macro_f1_pct_diff": 0.9005316224454782,
+      "test_accuracy_abs_diff": 0.007692307692307776,
+      "test_accuracy_pct_diff": 0.9029345372460595,
+      "total_runtime_abs_diff_seconds": 47.73746780026701,
+      "total_runtime_pct_overhead": 35.13314391624236
+    },
+    {
+      "dataset_name": "madelon",
+      "comparison": "metahpo_c_vs_optuna_tpe",
+      "baseline_method": "optuna_tpe",
+      "cv_macro_f1_abs_diff": -0.0062981599561577895,
+      "cv_macro_f1_pct_diff": -0.7765708839993789,
+      "test_macro_f1_abs_diff": 0.00574594870975087,
+      "test_macro_f1_pct_diff": 0.672950652004451,
+      "test_accuracy_abs_diff": 0.00576923076923086,
+      "test_accuracy_pct_diff": 0.6756756756756863,
+      "total_runtime_abs_diff_seconds": 24.168142000213237,
+      "total_runtime_pct_overhead": 15.1576475234654
+    },
+    {
+      "dataset_name": "diabetes",
+      "comparison": "metahpo_c_vs_random_search",
+      "baseline_method": "random_search",
+      "cv_macro_f1_abs_diff": -0.013962451052481617,
+      "cv_macro_f1_pct_diff": -1.8536981334838727,
+      "test_macro_f1_abs_diff": -0.013907893985985798,
+      "test_macro_f1_pct_diff": -1.9296630924236924,
+      "test_accuracy_abs_diff": -0.00649350649350644,
+      "test_accuracy_pct_diff": -0.8695652173912972,
+      "total_runtime_abs_diff_seconds": -0.6222367999143898,
+      "total_runtime_pct_overhead": -9.478948981047555
+    },
+    {
+      "dataset_name": "diabetes",
+      "comparison": "metahpo_c_vs_optuna_tpe",
+      "baseline_method": "optuna_tpe",
+      "cv_macro_f1_abs_diff": -0.018252795688812107,
+      "cv_macro_f1_pct_diff": -2.409572629397687,
+      "test_macro_f1_abs_diff": -0.022239884087399853,
+      "test_macro_f1_pct_diff": -3.0504286022849683,
+      "test_accuracy_abs_diff": -0.012987012987012991,
+      "test_accuracy_pct_diff": -1.7241379310344833,
+      "total_runtime_abs_diff_seconds": -0.83359199995175,
+      "total_runtime_pct_overhead": -12.30255671676799
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "comparison": "metahpo_c_vs_random_search",
+      "baseline_method": "random_search",
+      "cv_macro_f1_abs_diff": 0.0,
+      "cv_macro_f1_pct_diff": 0.0,
+      "test_macro_f1_abs_diff": 0.0,
+      "test_macro_f1_pct_diff": 0.0,
+      "test_accuracy_abs_diff": 0.0,
+      "test_accuracy_pct_diff": 0.0,
+      "total_runtime_abs_diff_seconds": 1.3793776000384241,
+      "total_runtime_pct_overhead": 22.629749903368722
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "comparison": "metahpo_c_vs_optuna_tpe",
+      "baseline_method": "optuna_tpe",
+      "cv_macro_f1_abs_diff": 0.0,
+      "cv_macro_f1_pct_diff": 0.0,
+      "test_macro_f1_abs_diff": 0.0,
+      "test_macro_f1_pct_diff": 0.0,
+      "test_accuracy_abs_diff": 0.0,
+      "test_accuracy_pct_diff": 0.0,
+      "total_runtime_abs_diff_seconds": -0.11724680010229349,
+      "total_runtime_pct_overhead": -1.5443382809320192
+    },
+    {
+      "dataset_name": "ilpd",
+      "comparison": "metahpo_c_vs_random_search",
+      "baseline_method": "random_search",
+      "cv_macro_f1_abs_diff": -0.002287168081328561,
+      "cv_macro_f1_pct_diff": -0.36104893687135914,
+      "test_macro_f1_abs_diff": 0.009347496019059154,
+      "test_macro_f1_pct_diff": 1.7448659235577089,
+      "test_accuracy_abs_diff": -0.008547008547008517,
+      "test_accuracy_pct_diff": -1.3698630136986252,
+      "total_runtime_abs_diff_seconds": 0.727224799804389,
+      "total_runtime_pct_overhead": 23.980309373556278
+    },
+    {
+      "dataset_name": "ilpd",
+      "comparison": "metahpo_c_vs_optuna_tpe",
+      "baseline_method": "optuna_tpe",
+      "cv_macro_f1_abs_diff": 0.012659852001927208,
+      "cv_macro_f1_pct_diff": 2.0467588944770077,
+      "test_macro_f1_abs_diff": -0.013001172261812521,
+      "test_macro_f1_pct_diff": -2.329696348545892,
+      "test_accuracy_abs_diff": -0.05128205128205121,
+      "test_accuracy_pct_diff": -7.692307692307681,
+      "total_runtime_abs_diff_seconds": 0.5074678999371827,
+      "total_runtime_pct_overhead": 15.603122824401295
+    }
+  ],
+  "early_search_checkpoints": [
+    {
+      "dataset_name": "madelon",
+      "trial_checkpoint": 1,
+      "metahpo_c_score": 0.7651837263671549,
+      "random_search_score": 0.7917809418586487,
+      "optuna_tpe_score": 0.7618543064023114,
+      "diff_vs_random": -0.026597215491493742,
+      "pct_diff_vs_random": -3.3591633854003478,
+      "diff_vs_optuna": 0.003329419964843483,
+      "pct_diff_vs_optuna": 0.43701531078375505
+    },
+    {
+      "dataset_name": "madelon",
+      "trial_checkpoint": 5,
+      "metahpo_c_score": 0.7961281286431944,
+      "random_search_score": 0.7921278855118606,
+      "optuna_tpe_score": 0.8047237423487484,
+      "diff_vs_random": 0.004000243131333736,
+      "pct_diff_vs_random": 0.5049996603451021,
+      "diff_vs_optuna": -0.008595613705554062,
+      "pct_diff_vs_optuna": -1.068144662970429
+    },
+    {
+      "dataset_name": "madelon",
+      "trial_checkpoint": 10,
+      "metahpo_c_score": 0.8047237423487484,
+      "random_search_score": 0.8023511549617105,
+      "optuna_tpe_score": 0.8047237423487484,
+      "diff_vs_random": 0.002372587387037939,
+      "pct_diff_vs_random": 0.2957043648988282,
+      "diff_vs_optuna": 0.0,
+      "pct_diff_vs_optuna": 0.0
+    },
+    {
+      "dataset_name": "madelon",
+      "trial_checkpoint": 20,
+      "metahpo_c_score": 0.8047237423487484,
+      "random_search_score": 0.8023511549617105,
+      "optuna_tpe_score": 0.8110219023049062,
+      "diff_vs_random": 0.002372587387037939,
+      "pct_diff_vs_random": 0.2957043648988282,
+      "diff_vs_optuna": -0.0062981599561577895,
+      "pct_diff_vs_optuna": -0.7765708839993789
+    },
+    {
+      "dataset_name": "diabetes",
+      "trial_checkpoint": 1,
+      "metahpo_c_score": 0.7107774794378937,
+      "random_search_score": 0.7338142601309413,
+      "optuna_tpe_score": 0.7238992526013543,
+      "diff_vs_random": -0.023036780693047598,
+      "pct_diff_vs_random": -3.139320390003995,
+      "diff_vs_optuna": -0.013121773163460637,
+      "pct_diff_vs_optuna": -1.8126518457239926
+    },
+    {
+      "dataset_name": "diabetes",
+      "trial_checkpoint": 5,
+      "metahpo_c_score": 0.7280351848124583,
+      "random_search_score": 0.7444531933943249,
+      "optuna_tpe_score": 0.739258950009208,
+      "diff_vs_random": -0.016418008581866594,
+      "pct_diff_vs_random": -2.2053782195504987,
+      "diff_vs_optuna": -0.011223765196749724,
+      "pct_diff_vs_optuna": -1.5182454262623297
+    },
+    {
+      "dataset_name": "diabetes",
+      "trial_checkpoint": 10,
+      "metahpo_c_score": 0.739258950009208,
+      "random_search_score": 0.7444531933943249,
+      "optuna_tpe_score": 0.7398204330134788,
+      "diff_vs_random": -0.00519424338511687,
+      "pct_diff_vs_random": -0.6977259861609006,
+      "diff_vs_optuna": -0.0005614830042707242,
+      "pct_diff_vs_optuna": -0.07589449807214159
+    },
+    {
+      "dataset_name": "diabetes",
+      "trial_checkpoint": 20,
+      "metahpo_c_score": 0.739258950009208,
+      "random_search_score": 0.7532214010616897,
+      "optuna_tpe_score": 0.7575117456980202,
+      "diff_vs_random": -0.013962451052481617,
+      "pct_diff_vs_random": -1.8536981334838727,
+      "diff_vs_optuna": -0.018252795688812107,
+      "pct_diff_vs_optuna": -2.409572629397687
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "trial_checkpoint": 1,
+      "metahpo_c_score": 0.9985795142323332,
+      "random_search_score": 1.0,
+      "optuna_tpe_score": 0.9978665015990922,
+      "diff_vs_random": -0.0014204857676668459,
+      "pct_diff_vs_random": -0.1420485767666846,
+      "diff_vs_optuna": 0.0007130126332409725,
+      "pct_diff_vs_optuna": 0.07145370969948002
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "trial_checkpoint": 5,
+      "metahpo_c_score": 1.0,
+      "random_search_score": 1.0,
+      "optuna_tpe_score": 1.0,
+      "diff_vs_random": 0.0,
+      "pct_diff_vs_random": 0.0,
+      "diff_vs_optuna": 0.0,
+      "pct_diff_vs_optuna": 0.0
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "trial_checkpoint": 10,
+      "metahpo_c_score": 1.0,
+      "random_search_score": 1.0,
+      "optuna_tpe_score": 1.0,
+      "diff_vs_random": 0.0,
+      "pct_diff_vs_random": 0.0,
+      "diff_vs_optuna": 0.0,
+      "pct_diff_vs_optuna": 0.0
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "trial_checkpoint": 20,
+      "metahpo_c_score": 1.0,
+      "random_search_score": 1.0,
+      "optuna_tpe_score": 1.0,
+      "diff_vs_random": 0.0,
+      "pct_diff_vs_random": 0.0,
+      "diff_vs_optuna": 0.0,
+      "pct_diff_vs_optuna": 0.0
+    },
+    {
+      "dataset_name": "ilpd",
+      "trial_checkpoint": 1,
+      "metahpo_c_score": 0.5973371298519449,
+      "random_search_score": 0.5788830114017576,
+      "optuna_tpe_score": 0.5989777207595914,
+      "diff_vs_random": 0.018454118450187296,
+      "pct_diff_vs_random": 3.1878839224355353,
+      "diff_vs_optuna": -0.0016405909076465663,
+      "pct_diff_vs_optuna": -0.27389848583450765
+    },
+    {
+      "dataset_name": "ilpd",
+      "trial_checkpoint": 5,
+      "metahpo_c_score": 0.6244565098157883,
+      "random_search_score": 0.6202499777993805,
+      "optuna_tpe_score": 0.6117524445343507,
+      "diff_vs_random": 0.004206532016407749,
+      "pct_diff_vs_random": 0.6781994626315568,
+      "diff_vs_optuna": 0.012704065281437527,
+      "pct_diff_vs_optuna": 2.0766676774144344
+    },
+    {
+      "dataset_name": "ilpd",
+      "trial_checkpoint": 10,
+      "metahpo_c_score": 0.6244565098157883,
+      "random_search_score": 0.6202499777993805,
+      "optuna_tpe_score": 0.6181195867263729,
+      "diff_vs_random": 0.004206532016407749,
+      "pct_diff_vs_random": 0.6781994626315568,
+      "diff_vs_optuna": 0.006336923089415358,
+      "pct_diff_vs_optuna": 1.0251937045024535
+    },
+    {
+      "dataset_name": "ilpd",
+      "trial_checkpoint": 20,
+      "metahpo_c_score": 0.6311915235187172,
+      "random_search_score": 0.6334786916000458,
+      "optuna_tpe_score": 0.61853167151679,
+      "diff_vs_random": -0.002287168081328561,
+      "pct_diff_vs_random": -0.36104893687135914,
+      "diff_vs_optuna": 0.012659852001927208,
+      "pct_diff_vs_optuna": 2.0467588944770077
+    }
+  ],
+  "warm_start_diagnostics": [
+    {
+      "dataset_name": "madelon",
+      "warm_start_best_cv_macro_f1": 0.7961281286431944,
+      "warm_start_best_trial": 4,
+      "post_warm_start_best_cv_macro_f1": 0.8047237423487484,
+      "final_best_cv_macro_f1": 0.8047237423487484,
+      "tpe_gain_over_warm_start": 0.008595613705554062,
+      "best_found_during_warm_start": false,
+      "trial_5_bsf_metahpo_c": 0.7961281286431944,
+      "trial_5_bsf_random": 0.7921278855118606,
+      "trial_5_bsf_optuna": 0.8047237423487484,
+      "trial_5_delta_vs_random": 0.004000243131333736,
+      "trial_5_delta_vs_optuna": -0.008595613705554062,
+      "trial_20_bsf_metahpo_c": 0.8047237423487484,
+      "trial_20_bsf_random": 0.8023511549617105,
+      "trial_20_bsf_optuna": 0.8110219023049062
+    },
+    {
+      "dataset_name": "diabetes",
+      "warm_start_best_cv_macro_f1": 0.7280351848124583,
+      "warm_start_best_trial": 4,
+      "post_warm_start_best_cv_macro_f1": 0.739258950009208,
+      "final_best_cv_macro_f1": 0.739258950009208,
+      "tpe_gain_over_warm_start": 0.011223765196749724,
+      "best_found_during_warm_start": false,
+      "trial_5_bsf_metahpo_c": 0.7280351848124583,
+      "trial_5_bsf_random": 0.7444531933943249,
+      "trial_5_bsf_optuna": 0.739258950009208,
+      "trial_5_delta_vs_random": -0.016418008581866594,
+      "trial_5_delta_vs_optuna": -0.011223765196749724,
+      "trial_20_bsf_metahpo_c": 0.739258950009208,
+      "trial_20_bsf_random": 0.7532214010616897,
+      "trial_20_bsf_optuna": 0.7575117456980202
+    },
+    {
+      "dataset_name": "steel-plates-fault",
+      "warm_start_best_cv_macro_f1": 1.0,
+      "warm_start_best_trial": 3,
+      "post_warm_start_best_cv_macro_f1": 1.0,
+      "final_best_cv_macro_f1": 1.0,
+      "tpe_gain_over_warm_start": 0.0,
+      "best_found_during_warm_start": true,
+      "trial_5_bsf_metahpo_c": 1.0,
+      "trial_5_bsf_random": 1.0,
+      "trial_5_bsf_optuna": 1.0,
+      "trial_5_delta_vs_random": 0.0,
+      "trial_5_delta_vs_optuna": 0.0,
+      "trial_20_bsf_metahpo_c": 1.0,
+      "trial_20_bsf_random": 1.0,
+      "trial_20_bsf_optuna": 1.0
+    },
+    {
+      "dataset_name": "ilpd",
+      "warm_start_best_cv_macro_f1": 0.6244565098157883,
+      "warm_start_best_trial": 2,
+      "post_warm_start_best_cv_macro_f1": 0.6311915235187172,
+      "final_best_cv_macro_f1": 0.6311915235187172,
+      "tpe_gain_over_warm_start": 0.006735013702928949,
+      "best_found_during_warm_start": false,
+      "trial_5_bsf_metahpo_c": 0.6244565098157883,
+      "trial_5_bsf_random": 0.6202499777993805,
+      "trial_5_bsf_optuna": 0.6117524445343507,
+      "trial_5_delta_vs_random": 0.004206532016407749,
+      "trial_5_delta_vs_optuna": 0.012704065281437527,
+      "trial_20_bsf_metahpo_c": 0.6311915235187172,
+      "trial_20_bsf_random": 0.6334786916000458,
+      "trial_20_bsf_optuna": 0.61853167151679
+    }
+  ],
+  "uncertainty_proxy_analysis": {
+    "overall_n_trials": 140,
+    "overall_spearman_correlation": 0.17994358312741904,
+    "overall_spearman_pvalue": 0.033384376042311315,
+    "overall_pearson_correlation": 0.08202540820004899,
+    "overall_pearson_pvalue": 0.33531617401098457,
+    "median_uncertainty_threshold": 0.08787866846865186,
+    "low_uncertainty_mae": 0.11097054029062965,
+    "high_uncertainty_mae": 0.11603490317943056,
+    "mae_gap_high_minus_low": 0.005064362888800911
+  },
+  "aggregate_descriptive_statistics": [
+    {
+      "method": "random_search",
+      "mean_best_cv_macro_f1": 0.7972628119058616,
+      "median_best_cv_macro_f1": 0.7777862780117001,
+      "mean_test_macro_f1": 0.7770936294625402,
+      "median_test_macro_f1": 0.7863301160679377,
+      "mean_test_accuracy": 0.8056519869019869,
+      "median_test_accuracy": 0.7993381618381619,
+      "mean_trial_5_cv_macro_f1": 0.7892077641763915,
+      "median_trial_5_cv_macro_f1": 0.7682905394530928,
+      "mean_hpo_runtime_seconds": 37.88625444995705,
+      "median_hpo_runtime_seconds": 6.325900449650362,
+      "mean_total_runtime_seconds": 37.89207337499829,
+      "median_total_runtime_seconds": 6.329911999986507
+    },
+    {
+      "method": "optuna_tpe",
+      "mean_best_cv_macro_f1": 0.7967663298799291,
+      "median_best_cv_macro_f1": 0.7842668240014632,
+      "mean_test_macro_f1": 0.7852452549610645,
+      "median_test_macro_f1": 0.7914590329245501,
+      "mean_test_accuracy": 0.8184398934398934,
+      "median_test_accuracy": 0.8035464535464536,
+      "mean_trial_5_cv_macro_f1": 0.7889337842230768,
+      "median_trial_5_cv_macro_f1": 0.7719913461789782,
+      "mean_hpo_runtime_seconds": 44.09798652480822,
+      "median_hpo_runtime_seconds": 6.980903699877672,
+      "mean_total_runtime_seconds": 44.266338950023055,
+      "median_total_runtime_seconds": 7.183901800075546
+    },
+    {
+      "method": "metahpo_c",
+      "mean_best_cv_macro_f1": 0.7937935539691684,
+      "median_best_cv_macro_f1": 0.7719913461789782,
+      "mean_test_macro_f1": 0.777871478051199,
+      "median_test_macro_f1": 0.7832120652357257,
+      "mean_test_accuracy": 0.8038149350649351,
+      "median_test_accuracy": 0.7999375624375624,
+      "mean_trial_5_cv_macro_f1": 0.7871549558178602,
+      "median_trial_5_cv_macro_f1": 0.7620816567278264,
+      "mean_hpo_runtime_seconds": 49.74184337526094,
+      "median_hpo_runtime_seconds": 6.463478900375776,
+      "mean_total_runtime_seconds": 50.19753172504715,
+      "median_total_runtime_seconds": 6.708482400048524
+    }
+  ],
+  "paired_statistical_tests": {
+    "metahpo_c_vs_random_search_best_cv_macro_f1": {
+      "metric": "best_cv_macro_f1",
+      "baseline": "random_search",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.013962451052481617,
+        -0.002287168081328561,
+        0.002372587387037939,
+        0.0
+      ],
+      "mean_difference": -0.00346925793669306,
+      "median_difference": -0.0011435840406642805,
+      "paired_t_statistic": -0.9570978385499013,
+      "paired_t_pvalue": 0.4091252903808397,
+      "wilcoxon_statistic": 3.0,
+      "wilcoxon_pvalue": 0.75
+    },
+    "metahpo_c_vs_random_search_test_macro_f1": {
+      "metric": "test_macro_f1",
+      "baseline": "random_search",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.013907893985985798,
+        0.009347496019059154,
+        0.007671792321561677,
+        0.0
+      ],
+      "mean_difference": 0.0007778485886587583,
+      "median_difference": 0.0038358961607808384,
+      "paired_t_statistic": 0.14672876051889072,
+      "paired_t_pvalue": 0.8926516549139861,
+      "wilcoxon_statistic": 4.0,
+      "wilcoxon_pvalue": 1.0
+    },
+    "metahpo_c_vs_random_search_test_accuracy": {
+      "metric": "test_accuracy",
+      "baseline": "random_search",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.00649350649350644,
+        -0.008547008547008517,
+        0.007692307692307776,
+        0.0
+      ],
+      "mean_difference": -0.0018370518370517952,
+      "median_difference": -0.00324675324675322,
+      "paired_t_statistic": -0.5017046510660631,
+      "paired_t_pvalue": 0.6503807968746906,
+      "wilcoxon_statistic": 3.0,
+      "wilcoxon_pvalue": 0.75
+    },
+    "metahpo_c_vs_random_search_total_runtime_seconds": {
+      "metric": "total_runtime_seconds",
+      "baseline": "random_search",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.6222367999143898,
+        0.727224799804389,
+        47.73746780026701,
+        1.3793776000384241
+      ],
+      "mean_difference": 12.305458350048859,
+      "median_difference": 1.0533011999214066,
+      "paired_t_statistic": 1.0412452961390297,
+      "paired_t_pvalue": 0.3742966511618785,
+      "wilcoxon_statistic": 1.0,
+      "wilcoxon_pvalue": 0.25
+    },
+    "metahpo_c_vs_optuna_tpe_best_cv_macro_f1": {
+      "metric": "best_cv_macro_f1",
+      "baseline": "optuna_tpe",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.018252795688812107,
+        0.012659852001927208,
+        -0.0062981599561577895,
+        0.0
+      ],
+      "mean_difference": -0.002972775910760672,
+      "median_difference": -0.0031490799780788947,
+      "paired_t_statistic": -0.4615785045452248,
+      "paired_t_pvalue": 0.6757941498767922,
+      "wilcoxon_statistic": 3.0,
+      "wilcoxon_pvalue": 0.75
+    },
+    "metahpo_c_vs_optuna_tpe_test_macro_f1": {
+      "metric": "test_macro_f1",
+      "baseline": "optuna_tpe",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.022239884087399853,
+        -0.013001172261812521,
+        0.00574594870975087,
+        0.0
+      ],
+      "mean_difference": -0.007373776909865376,
+      "median_difference": -0.006500586130906261,
+      "paired_t_statistic": -1.166907641044329,
+      "paired_t_pvalue": 0.3275683920594025,
+      "wilcoxon_statistic": 2.0,
+      "wilcoxon_pvalue": 0.5
+    },
+    "metahpo_c_vs_optuna_tpe_test_accuracy": {
+      "metric": "test_accuracy",
+      "baseline": "optuna_tpe",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.012987012987012991,
+        -0.05128205128205121,
+        0.00576923076923086,
+        0.0
+      ],
+      "mean_difference": -0.014624958374958336,
+      "median_difference": -0.006493506493506496,
+      "paired_t_statistic": -1.1396347241497775,
+      "paired_t_pvalue": 0.3371922980767104,
+      "wilcoxon_statistic": 2.0,
+      "wilcoxon_pvalue": 0.5
+    },
+    "metahpo_c_vs_optuna_tpe_total_runtime_seconds": {
+      "metric": "total_runtime_seconds",
+      "baseline": "optuna_tpe",
+      "n_datasets": 4,
+      "paired_differences": [
+        -0.83359199995175,
+        0.5074678999371827,
+        24.168142000213237,
+        -0.11724680010229349
+      ],
+      "mean_difference": 5.931192775024094,
+      "median_difference": 0.1951105499174446,
+      "paired_t_statistic": 0.974699039610788,
+      "paired_t_pvalue": 0.40159697673495326,
+      "wilcoxon_statistic": 4.0,
+      "wilcoxon_pvalue": 0.875
+    }
+  },
+  "methodological_limitations": [
+    "Evaluated across four unseen OpenML datasets with fixed random seed 42.",
+    "Sample size of n=4 independent datasets severely limits statistical hypothesis test power.",
+    "ExtraTrees standard deviation across estimators is an ensemble dispersion uncertainty proxy, not a calibrated probability.",
+    "Meta-model was trained on 140 historical trials across 7 datasets; generalization scope is currently bounded to tabular binary/multiclass problems.",
+    "Evaluation budget was equalized at 20 3-fold CV trials per method.",
+    "Ceiling effect observed on steel-plates-fault where all three methods reached 1.0000 macro F1."
+  ]
+}

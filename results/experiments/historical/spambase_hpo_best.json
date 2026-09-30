@@ -1,0 +1,16 @@
+{
+  "dataset": "spambase",
+  "n_trials": 20,
+  "best_trial_number": 0,
+  "best_cv_macro_f1": 0.9484600357303704,
+  "best_params": {
+    "n_estimators": 144,
+    "max_depth": 8,
+    "learning_rate": 0.1205712628744377,
+    "subsample": 0.8394633936788146,
+    "colsample_bytree": 0.6624074561769746,
+    "min_child_weight": 2,
+    "gamma": 0.11616722433639892,
+    "reg_lambda": 5.3994844097874335
+  }
+}

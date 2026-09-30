@@ -1,0 +1,16 @@
+{
+  "dataset": "wdbc",
+  "n_trials": 20,
+  "best_trial_number": 13,
+  "best_cv_macro_f1": 0.9624433017746957,
+  "best_params": {
+    "n_estimators": 239,
+    "max_depth": 4,
+    "learning_rate": 0.07189949221328164,
+    "subsample": 0.628400652919247,
+    "colsample_bytree": 0.7308500814529302,
+    "min_child_weight": 1,
+    "gamma": 0.037302430149919186,
+    "reg_lambda": 2.0057341644451823
+  }
+}

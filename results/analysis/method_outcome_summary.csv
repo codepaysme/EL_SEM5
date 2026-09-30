@@ -1,0 +1,5 @@
+dataset_name,top_method_cv_macro_f1,top_method_test_macro_f1,top_method_test_accuracy,top_method_trial_5_bsf,metahpo_c_best_cv_macro_f1,metahpo_c_test_macro_f1,metahpo_c_test_accuracy,metahpo_c_best_score_reached_at_trial
+madelon,optuna_tpe,metahpo_c,metahpo_c,optuna_tpe,0.8047237423487484,0.8595899404847771,0.8596153846153847,7
+diabetes,optuna_tpe,optuna_tpe,optuna_tpe,random_search,0.739258950009208,0.7068341899866742,0.7402597402597403,9
+steel-plates-fault,random_search/optuna_tpe/metahpo_c,random_search/optuna_tpe/metahpo_c,random_search/optuna_tpe/metahpo_c,random_search/optuna_tpe/metahpo_c,1.0,1.0,1.0,3
+ilpd,random_search,optuna_tpe,optuna_tpe,metahpo_c,0.6311915235187172,0.5450617817333449,0.6153846153846154,20

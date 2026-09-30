@@ -1,0 +1,160 @@
+{
+  "evaluation_method": "Leave-One-Dataset-Out (LODO)",
+  "model_type": "ExtraTreesRegressor",
+  "n_datasets": 7,
+  "n_examples": 140,
+  "feature_count": 30,
+  "overall_metrics": {
+    "mae": 0.11350272173503015,
+    "rmse": 0.1281671779390465,
+    "r2": -0.1911658946053767,
+    "spearman": 0.1503618989307035
+  },
+  "baseline_overall_metrics": {
+    "mae": 0.11272531238984766,
+    "rmse": 0.13336234538202418,
+    "r2": -0.28968917837306796,
+    "spearman": -0.9036940515810529
+  },
+  "per_dataset_metrics": {
+    "adult": {
+      "mae": 0.0860708096087466,
+      "rmse": 0.08883281517865314,
+      "r2": -1.6514697287513447,
+      "spearman": 0.6631578947368421
+    },
+    "bank-marketing": {
+      "mae": 0.027714520464624148,
+      "rmse": 0.044147105615141506,
+      "r2": 0.6840417760426238,
+      "spearman": 0.6240601503759398
+    },
+    "credit-g": {
+      "mae": 0.11347326086223627,
+      "rmse": 0.11910098941527003,
+      "r2": -1.7516857922818598,
+      "spearman": 0.7969924812030074
+    },
+    "phoneme": {
+      "mae": 0.07620602748799013,
+      "rmse": 0.0788348256833548,
+      "r2": -0.5778375884516194,
+      "spearman": 0.7233082706766917
+    },
+    "spambase": {
+      "mae": 0.11444117113839165,
+      "rmse": 0.11485750470060203,
+      "r2": -92.99327723305808,
+      "spearman": 0.8556390977443609
+    },
+    "vehicle": {
+      "mae": 0.19304507328479048,
+      "rmse": 0.193757920677428,
+      "r2": -64.85173262016497,
+      "spearman": 0.5007518796992482
+    },
+    "wdbc": {
+      "mae": 0.18356818929843166,
+      "rmse": 0.18442664907150685,
+      "r2": -235.49432202579544,
+      "spearman": 0.6947368421052631
+    }
+  },
+  "baseline_per_dataset_metrics": {
+    "adult": {
+      "mae": 0.03267426415730251,
+      "rmse": 0.06359083487311179,
+      "r2": -0.358716582963319,
+      "spearman": 0.0
+    },
+    "bank-marketing": {
+      "mae": 0.10129237589916504,
+      "rmse": 0.1281740136644973,
+      "r2": -1.6633311043328565,
+      "spearman": 0.0
+    },
+    "credit-g": {
+      "mae": 0.1667028183206339,
+      "rmse": 0.18150721183269303,
+      "r2": -5.390809526181822,
+      "spearman": 0.0
+    },
+    "phoneme": {
+      "mae": 0.0668908011925743,
+      "rmse": 0.07395319598637763,
+      "r2": -0.38848108981749885,
+      "spearman": 0.0
+    },
+    "spambase": {
+      "mae": 0.1664120001761069,
+      "rmse": 0.1668331708238997,
+      "r2": -197.30919268790586,
+      "spearman": 0.0
+    },
+    "vehicle": {
+      "mae": 0.07998252101219364,
+      "rmse": 0.08347038135953525,
+      "r2": -11.22117804571454,
+      "spearman": 0.0
+    },
+    "wdbc": {
+      "mae": 0.1751224059709573,
+      "rmse": 0.17553255967624246,
+      "r2": -213.23416896937294,
+      "spearman": 0.0
+    }
+  },
+  "metadata": {
+    "model_type": "ExtraTreesRegressor",
+    "model_params": {
+      "n_estimators": 300,
+      "random_state": 42,
+      "n_jobs": -1,
+      "min_samples_leaf": 2,
+      "max_features": 1.0
+    },
+    "datasets_evaluated": [
+      "adult",
+      "bank-marketing",
+      "credit-g",
+      "phoneme",
+      "spambase",
+      "vehicle",
+      "wdbc"
+    ],
+    "n_examples": 140,
+    "feature_names": [
+      "n_samples",
+      "n_features",
+      "feature_to_sample_ratio",
+      "log_n_samples",
+      "log_n_features",
+      "numeric_feature_count",
+      "numeric_feature_ratio",
+      "mean_of_feature_means",
+      "std_of_feature_means",
+      "mean_of_feature_stds",
+      "std_of_feature_stds",
+      "mean_of_feature_min",
+      "mean_of_feature_max",
+      "missing_value_ratio",
+      "features_with_missing_ratio",
+      "categorical_feature_count",
+      "categorical_feature_ratio",
+      "mean_categorical_cardinality",
+      "max_categorical_cardinality",
+      "mean_absolute_correlation",
+      "max_absolute_correlation",
+      "mean_coefficient_of_variation",
+      "n_estimators",
+      "max_depth",
+      "learning_rate",
+      "subsample",
+      "colsample_bytree",
+      "min_child_weight",
+      "gamma",
+      "reg_lambda"
+    ],
+    "target_name": "cv_macro_f1"
+  }
+}

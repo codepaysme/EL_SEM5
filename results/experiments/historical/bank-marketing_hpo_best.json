@@ -1,0 +1,16 @@
+{
+  "dataset": "bank-marketing",
+  "n_trials": 20,
+  "best_trial_number": 11,
+  "best_cv_macro_f1": 0.7546786960398061,
+  "best_params": {
+    "n_estimators": 246,
+    "max_depth": 8,
+    "learning_rate": 0.29548457043668963,
+    "subsample": 0.8369993090060779,
+    "colsample_bytree": 0.7143417233780396,
+    "min_child_weight": 4,
+    "gamma": 1.9552269562998226,
+    "reg_lambda": 2.732597424792753
+  }
+}

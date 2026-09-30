@@ -1,0 +1,89 @@
+{
+  "validation_method": "Leave-One-Dataset-Out (LODO)",
+  "uncertainty_method": "ExtraTrees ensemble prediction dispersion",
+  "n_estimators": 300,
+  "uncertainty_definition": "Standard deviation across tree predictions p_1..p_T",
+  "standard_deviation_ddof": 0,
+  "calibrated": false,
+  "interpretation": "ensemble disagreement proxy (relative heuristic, not calibrated probability)",
+  "overall_mean_uncertainty": 0.08935675583608967,
+  "overall_median_uncertainty": 0.08787866846865192,
+  "overall_mean_absolute_error": 0.11350272173503015,
+  "overall_median_absolute_error": 0.10375546910711492,
+  "overall_spearman_uncertainty_vs_absolute_error": 0.17994358312741904,
+  "overall_pearson_uncertainty_vs_absolute_error": 0.08202540820004896,
+  "low_uncertainty_mae": 0.1109705402906297,
+  "high_uncertainty_mae": 0.11603490317943062,
+  "per_dataset_metrics": {
+    "adult": {
+      "mean_uncertainty": 0.04410608738398004,
+      "median_uncertainty": 0.04302351095481599,
+      "mean_absolute_error": 0.08607080960874662,
+      "median_absolute_error": 0.08030453644590346,
+      "spearman_uncertainty_vs_error": 0.3398496240601503,
+      "pearson_uncertainty_vs_error": 0.5178695256577107,
+      "low_uncertainty_mae": 0.07855219938956512,
+      "high_uncertainty_mae": 0.09358941982792816
+    },
+    "bank-marketing": {
+      "mean_uncertainty": 0.09314293660007085,
+      "median_uncertainty": 0.0902469971324128,
+      "mean_absolute_error": 0.027714520464624165,
+      "median_absolute_error": 0.012435772370032405,
+      "spearman_uncertainty_vs_error": 0.3203007518796992,
+      "pearson_uncertainty_vs_error": 0.7173545978024842,
+      "low_uncertainty_mae": 0.013584455138759744,
+      "high_uncertainty_mae": 0.04184458579048859
+    },
+    "credit-g": {
+      "mean_uncertainty": 0.09477738507746836,
+      "median_uncertainty": 0.08762282892457254,
+      "mean_absolute_error": 0.11347326086223627,
+      "median_absolute_error": 0.1010125504794871,
+      "spearman_uncertainty_vs_error": 0.43909774436090226,
+      "pearson_uncertainty_vs_error": 0.9407152119406973,
+      "low_uncertainty_mae": 0.0979261878079539,
+      "high_uncertainty_mae": 0.12902033391651865
+    },
+    "phoneme": {
+      "mean_uncertainty": 0.09349398817576965,
+      "median_uncertainty": 0.08617946789983125,
+      "mean_absolute_error": 0.07620602748799013,
+      "median_absolute_error": 0.07776193234935797,
+      "spearman_uncertainty_vs_error": 0.11127819548872178,
+      "pearson_uncertainty_vs_error": -0.48101764631985466,
+      "low_uncertainty_mae": 0.07770908208083153,
+      "high_uncertainty_mae": 0.07470297289514867
+    },
+    "spambase": {
+      "mean_uncertainty": 0.12872792867742006,
+      "median_uncertainty": 0.12200703204749537,
+      "mean_absolute_error": 0.11444117113839167,
+      "median_absolute_error": 0.11145559954564149,
+      "spearman_uncertainty_vs_error": 0.7172932330827068,
+      "pearson_uncertainty_vs_error": 0.9044261950609009,
+      "low_uncertainty_mae": 0.10985770039386959,
+      "high_uncertainty_mae": 0.11902464188291373
+    },
+    "vehicle": {
+      "mean_uncertainty": 0.04742592070967923,
+      "median_uncertainty": 0.043452345328257744,
+      "mean_absolute_error": 0.19304507328479045,
+      "median_absolute_error": 0.19030611576349915,
+      "spearman_uncertainty_vs_error": 0.17142857142857143,
+      "pearson_uncertainty_vs_error": 0.2379899195865402,
+      "low_uncertainty_mae": 0.19419833179023366,
+      "high_uncertainty_mae": 0.1918918147793473
+    },
+    "wdbc": {
+      "mean_uncertainty": 0.12382304422823956,
+      "median_uncertainty": 0.11787491606283215,
+      "mean_absolute_error": 0.18356818929843166,
+      "median_absolute_error": 0.1792556439790618,
+      "spearman_uncertainty_vs_error": 0.7157894736842104,
+      "pearson_uncertainty_vs_error": 0.9374630660422215,
+      "low_uncertainty_mae": 0.1728384370593136,
+      "high_uncertainty_mae": 0.19429794153754978
+    }
+  }
+}

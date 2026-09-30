@@ -1,0 +1,16 @@
+{
+  "dataset": "vehicle",
+  "n_trials": 20,
+  "best_trial_number": 18,
+  "best_cv_macro_f1": 0.7587009287934938,
+  "best_params": {
+    "n_estimators": 247,
+    "max_depth": 6,
+    "learning_rate": 0.06733943422005317,
+    "subsample": 0.7774960847560124,
+    "colsample_bytree": 0.9994761231244486,
+    "min_child_weight": 5,
+    "gamma": 0.24032354874757628,
+    "reg_lambda": 1.331773299714624
+  }
+}
