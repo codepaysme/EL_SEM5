@@ -22,6 +22,10 @@ from src.confidence.acquisition import (
     HPO_SEARCH_SPACE,
     recommend_hyperparameters,
 )
+from src.confidence.pruning import (
+    compute_space_volume_ratio,
+    prune_search_space,
+)
 from src.data.loader import get_project_root, load_dataset
 from src.features.meta_features import (
     X_ONLY_META_FEATURE_NAMES,
@@ -70,8 +74,97 @@ META_FEATURE_GROUPS: Dict[str, List[str]] = {
     ],
 }
 
-# Supported Built-in Demo Datasets
-DEMO_DATASETS = ["WDBC", "Iris", "Wine", "Breast Cancer"]
+# Supported Built-in Demo Datasets (including Indian datasets & real-world benchmarks)
+DEMO_DATASETS = [
+    "WDBC (Breast Cancer Diagnostic)",
+    "ILPD (Indian Liver Patient - AP, India)",
+    "Diabetes (Pima Indians Clinical)",
+    "Steel Plates Fault (Industrial Quality)",
+    "Credit-G (German Credit Risk)",
+    "Spambase (Email Spam Detection)",
+    "Vehicle (Silhouette Recognition)",
+    "Phoneme (Acoustic Speech Signals)",
+    "Iris (Botanical Classification)",
+    "Wine (Chemical Composition)",
+]
+
+# Aliases for backward-compatibility with test suites and short names
+DEMO_DATASET_ALIASES: Dict[str, str] = {
+    "WDBC": "WDBC (Breast Cancer Diagnostic)",
+    "Breast Cancer": "WDBC (Breast Cancer Diagnostic)",
+    "Iris": "Iris (Botanical Classification)",
+    "Wine": "Wine (Chemical Composition)",
+    "ILPD": "ILPD (Indian Liver Patient - AP, India)",
+    "Diabetes": "Diabetes (Pima Indians Clinical)",
+    "Steel Plates Fault": "Steel Plates Fault (Industrial Quality)",
+    "Credit-G": "Credit-G (German Credit Risk)",
+    "Spambase": "Spambase (Email Spam Detection)",
+    "Vehicle": "Vehicle (Silhouette Recognition)",
+    "Phoneme": "Phoneme (Acoustic Speech Signals)",
+}
+
+DATASET_METADATA: Dict[str, Dict[str, Any]] = {
+    "WDBC (Breast Cancer Diagnostic)": {
+        "cache_file": "wdbc.csv",
+        "openml_name": "wdbc",
+        "display_name": "WDBC (Breast Cancer Diagnostic - OpenML 1510 / Sklearn)",
+        "sklearn_loader": load_breast_cancer,
+    },
+    "ILPD (Indian Liver Patient - AP, India)": {
+        "cache_file": "ilpd.csv",
+        "openml_name": "ilpd",
+        "display_name": "ILPD (Indian Liver Patient Dataset - Andhra Pradesh, India)",
+        "sklearn_loader": None,
+    },
+    "Diabetes (Pima Indians Clinical)": {
+        "cache_file": "diabetes.csv",
+        "openml_name": "diabetes",
+        "display_name": "Pima Indians Diabetes Clinical Dataset (768 samples, 8 features)",
+        "sklearn_loader": None,
+    },
+    "Steel Plates Fault (Industrial Quality)": {
+        "cache_file": "steel_plates_fault.csv",
+        "openml_name": "steel-plates-fault",
+        "display_name": "Steel Plates Fault Manufacturing Dataset (1,941 samples, 33 features)",
+        "sklearn_loader": None,
+    },
+    "Credit-G (German Credit Risk)": {
+        "cache_file": "credit_g.csv",
+        "openml_name": "credit-g",
+        "display_name": "Credit-G Financial Risk Classification Dataset (1,000 samples, 20 features)",
+        "sklearn_loader": None,
+    },
+    "Spambase (Email Spam Detection)": {
+        "cache_file": "spambase.csv",
+        "openml_name": "spambase",
+        "display_name": "Spambase Text Frequency Classification Dataset (4,601 samples, 57 features)",
+        "sklearn_loader": None,
+    },
+    "Vehicle (Silhouette Recognition)": {
+        "cache_file": "vehicle.csv",
+        "openml_name": "vehicle",
+        "display_name": "Vehicle 3D Silhouette Recognition Dataset (846 samples, 18 features)",
+        "sklearn_loader": None,
+    },
+    "Phoneme (Acoustic Speech Signals)": {
+        "cache_file": "phoneme.csv",
+        "openml_name": "phoneme",
+        "display_name": "Phoneme Acoustic Speech Signal Dataset (5,404 samples, 5 features)",
+        "sklearn_loader": None,
+    },
+    "Iris (Botanical Classification)": {
+        "cache_file": "iris.csv",
+        "openml_name": None,
+        "display_name": "Iris Classification Dataset (150 samples, 4 features)",
+        "sklearn_loader": load_iris,
+    },
+    "Wine (Chemical Composition)": {
+        "cache_file": "wine.csv",
+        "openml_name": None,
+        "display_name": "Wine Recognition Dataset (178 samples, 13 features)",
+        "sklearn_loader": load_wine,
+    },
+}
 
 
 def get_grouped_meta_features(df_meta_table: pd.DataFrame) -> Dict[str, pd.DataFrame]:
@@ -102,36 +195,52 @@ def get_grouped_meta_features(df_meta_table: pd.DataFrame) -> Dict[str, pd.DataF
 
 
 def load_demo_dataset(dataset_name: str) -> Tuple[pd.DataFrame, Optional[pd.Series], str]:
-    """Load built-in demonstration dataset.
+    """Load built-in demonstration dataset (supports Indian datasets, OpenML, & Sklearn).
 
     Parameters
     ----------
     dataset_name : str
-        Name of demo dataset ("WDBC", "Iris", "Wine", "Breast Cancer").
+        Name or identifier of demo dataset.
 
     Returns
     -------
     tuple of (X_df, y_series, display_name)
     """
     clean_name = dataset_name.strip()
-    if clean_name == "WDBC":
+    canonical_name = DEMO_DATASET_ALIASES.get(clean_name, clean_name)
+
+    if canonical_name not in DATASET_METADATA:
+        valid_choices = DEMO_DATASETS + list(DEMO_DATASET_ALIASES.keys())
+        raise ValueError(f"Unsupported demo dataset '{clean_name}'. Must be one of: {valid_choices}")
+
+    meta = DATASET_METADATA[canonical_name]
+    cache_path = get_project_root() / "data" / "demo_cache" / meta["cache_file"]
+
+    # 1. Preferred fast, deterministic, 100% offline cache
+    if cache_path.is_file():
         try:
-            loaded = load_dataset("wdbc")
-            return loaded.X, loaded.y, "WDBC (Breast Cancer Diagnostic - OpenML 1510)"
-        except Exception:
-            ds = load_breast_cancer(as_frame=True)
-            return ds.data, ds.target, "WDBC / Breast Cancer Diagnostic (sklearn)"
-    elif clean_name == "Iris":
-        ds = load_iris(as_frame=True)
-        return ds.data, ds.target, "Iris Classification Dataset (150 samples, 4 features)"
-    elif clean_name == "Wine":
-        ds = load_wine(as_frame=True)
-        return ds.data, ds.target, "Wine Recognition Dataset (178 samples, 13 features)"
-    elif clean_name == "Breast Cancer":
-        ds = load_breast_cancer(as_frame=True)
-        return ds.data, ds.target, "Breast Cancer Wisconsin Dataset (569 samples, 30 features)"
-    else:
-        raise ValueError(f"Unsupported demo dataset '{clean_name}'. Must be one of: {DEMO_DATASETS}")
+            df = pd.read_csv(cache_path)
+            if "target" in df.columns:
+                X_df = df.drop(columns=["target"])
+                y_series = df["target"]
+            else:
+                X_df = df.iloc[:, :-1]
+                y_series = df.iloc[:, -1]
+            return X_df, y_series, meta["display_name"]
+        except Exception as exc:
+            logger.warning(f"Failed loading cached CSV at {cache_path}: {exc}. Falling back to dynamic load.")
+
+    # 2. Sklearn built-in fallback
+    if meta.get("sklearn_loader") is not None:
+        ds = meta["sklearn_loader"](as_frame=True)
+        return ds.data, ds.target, meta["display_name"]
+
+    # 3. OpenML remote/cached fallback
+    if meta.get("openml_name") is not None:
+        loaded = load_dataset(meta["openml_name"])
+        return loaded.X, loaded.y, meta["display_name"]
+
+    raise RuntimeError(f"Unable to load demo dataset '{dataset_name}' from cache or remote repositories.")
 
 
 def parse_uploaded_csv(
@@ -281,12 +390,57 @@ def load_meta_model(model_path: Optional[Union[Path, str]] = None) -> Any:
     return meta_model
 
 
+def format_search_space_comparison(
+    base_space: Dict[str, Tuple[Union[int, float], Union[int, float], str]],
+    pruned_space: Dict[str, Tuple[Union[int, float], Union[int, float], str]],
+) -> pd.DataFrame:
+    """Format a side-by-side comparison table between original and pruned search spaces.
+
+    Parameters
+    ----------
+    base_space : dict
+        Baseline search space bounds.
+    pruned_space : dict
+        Pruned search space bounds.
+
+    Returns
+    -------
+    pd.DataFrame
+        Table with ['Hyperparameter', 'Original Search Space', 'Pruned Search Space', 'Status'].
+    """
+    rows = []
+    for param, (b_low, b_high, ptype) in base_space.items():
+        p_low, p_high, _ = pruned_space[param]
+        is_pruned = (b_low != p_low) or (b_high != p_high)
+
+        if ptype == "int":
+            orig_str = f"[{int(b_low)}, {int(b_high)}]"
+            prun_str = f"[{int(p_low)}, {int(p_high)}]"
+        elif ptype == "log_float":
+            orig_str = f"[{b_low:.4f}, {b_high:.4f}] (log)"
+            prun_str = f"[{p_low:.4f}, {p_high:.4f}] (log)"
+        else:
+            orig_str = f"[{b_low:.4f}, {b_high:.4f}]"
+            prun_str = f"[{p_low:.4f}, {p_high:.4f}]"
+
+        status_str = "🎯 Contracted" if is_pruned else "— Unchanged"
+        rows.append({
+            "Hyperparameter": param,
+            "Original Search Space": orig_str,
+            "Pruned Search Space": prun_str,
+            "Status": status_str,
+        })
+
+    return pd.DataFrame(rows)
+
+
 def generate_metahpo_recommendations(
     meta_model: Any,
     dataset_meta_features: np.ndarray,
     n_candidates: int = 200,
     n_select: int = 5,
     beta: float = 0.1,
+    search_space: Optional[Dict[str, Tuple[Union[int, float], Union[int, float], str]]] = None,
     seed: int = 42,
 ) -> pd.DataFrame:
     """Generate and rank hyperparameter candidate configurations using MetaHPO-C.
@@ -303,6 +457,8 @@ def generate_metahpo_recommendations(
         Number of top recommendations to return.
     beta : float, default=0.1
         Upper-confidence exploration trade-off parameter.
+    search_space : dict, optional
+        Custom or pruned search space dictionary. Defaults to canonical HPO_SEARCH_SPACE.
     seed : int, default=42
         Reproducibility seed for candidate generation.
 
@@ -317,6 +473,7 @@ def generate_metahpo_recommendations(
         n_candidates=n_candidates,
         n_select=n_select,
         beta=beta,
+        search_space=search_space,
         seed=seed,
     )
 

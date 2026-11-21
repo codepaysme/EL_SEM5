@@ -54,6 +54,7 @@ HPO_SEARCH_SPACE: Dict[str, Tuple[Union[int, float], Union[int, float], str]] = 
 
 def generate_candidate_configs(
     n_candidates: int = 200,
+    search_space: Optional[Dict[str, Tuple[Union[int, float], Union[int, float], str]]] = None,
     seed: int = 42,
 ) -> List[Dict[str, Union[float, int]]]:
     """Sample candidate XGBoost hyperparameter configurations from the search space.
@@ -62,6 +63,8 @@ def generate_candidate_configs(
     ----------
     n_candidates : int, default=200
         Number of candidate hyperparameter configurations to generate.
+    search_space : dict, optional
+        Custom or pruned search space dictionary. Defaults to canonical HPO_SEARCH_SPACE.
     seed : int, default=42
         Reproducibility seed for NumPy random number generator.
 
@@ -78,12 +81,13 @@ def generate_candidate_configs(
     if n_candidates <= 0:
         raise ValueError(f"n_candidates must be a positive integer, got {n_candidates}.")
 
+    space = search_space if search_space is not None else HPO_SEARCH_SPACE
     rng = np.random.default_rng(seed)
     candidates: List[Dict[str, Union[float, int]]] = []
 
     for _ in range(n_candidates):
         config: Dict[str, Union[float, int]] = {}
-        for param, (low, high, ptype) in HPO_SEARCH_SPACE.items():
+        for param, (low, high, ptype) in space.items():
             if ptype == "int":
                 config[param] = int(rng.integers(int(low), int(high) + 1))
             elif ptype == "float":
@@ -320,6 +324,7 @@ def recommend_hyperparameters(
     n_candidates: int = 200,
     n_select: int = 10,
     beta: float = 0.1,
+    search_space: Optional[Dict[str, Tuple[Union[int, float], Union[int, float], str]]] = None,
     seed: int = 42,
     reference_uncertainties: Optional[np.ndarray] = None,
 ) -> pd.DataFrame:
@@ -328,7 +333,7 @@ def recommend_hyperparameters(
     Pipeline:
         dataset meta-features (22 X-only)
                 ↓
-        generate candidates (n_candidates)
+        generate candidates (n_candidates, optionally from pruned space)
                 ↓
         build 30-dimensional candidate matrix
                 ↓
@@ -352,6 +357,8 @@ def recommend_hyperparameters(
         Number of top candidate configurations to recommend.
     beta : float, default=0.1
         Exploration weighting parameter.
+    search_space : dict, optional
+        Custom or pruned search space dictionary. Defaults to canonical HPO_SEARCH_SPACE.
     seed : int, default=42
         Sampling reproducibility seed.
     reference_uncertainties : np.ndarray, optional
@@ -363,7 +370,11 @@ def recommend_hyperparameters(
         Top recommended candidate configurations with predicted metrics and acquisition scores.
     """
     # 1. Generate candidate configurations
-    candidate_configs = generate_candidate_configs(n_candidates=n_candidates, seed=seed)
+    candidate_configs = generate_candidate_configs(
+        n_candidates=n_candidates,
+        search_space=search_space,
+        seed=seed,
+    )
 
     # 2. Build 30-dimensional candidate feature matrix
     candidate_matrix = build_candidate_matrix(dataset_meta_features, candidate_configs)

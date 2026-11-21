@@ -10,6 +10,10 @@ from src.confidence.acquisition import (
     select_top_candidates,
 )
 from src.confidence.estimator import ConfidenceEstimator
+from src.confidence.pruning import (
+    compute_space_volume_ratio,
+    prune_search_space,
+)
 from src.confidence.uncertainty import (
     LODOUncertaintyResult,
     UncertaintyPrediction,
@@ -32,4 +36,6 @@ __all__ = [
     "compute_acquisition_score",
     "select_top_candidates",
     "recommend_hyperparameters",
+    "prune_search_space",
+    "compute_space_volume_ratio",
 ]
